@@ -1,0 +1,7 @@
+# large artifacts live in Google Drive, not in git
+*.pt
+*.onnx
+*.npz
+__pycache__/
+.ipynb_checkpoints/
+.venv/

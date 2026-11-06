@@ -1,0 +1,7 @@
+# inference API (app.py) - no PyTorch needed
+numpy
+onnxruntime
+fastapi
+uvicorn
+python-multipart
+pillow
