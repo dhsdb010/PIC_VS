@@ -18,6 +18,26 @@ Data: [`ashraq/fashion-product-images-small`](https://huggingface.co/datasets/as
 
 A retrieval hit means the result has the same category as the query, not that it is the same product.
 
+## Figures
+
+Learning curves (train vs validation; the gap stays small, so no strong overfitting):
+
+![learning curves](images/curves.png)
+
+Row-normalised confusion matrix on the test set:
+
+![confusion matrix](images/confusion_matrix.png)
+
+Similar-item search. Query on the left, top-5 gallery matches to its right (green = same category, red = different). The first example is a clean hit. The wallet in the odd colours is a grayscale source image drawn with a colormap in the plot, a display quirk only; retrieval was unaffected.
+
+![wallets](images/search_wallets.png)
+
+A weaker example (3 of 5 correct): the pink top pulls in similar-coloured shirts, because the embedding also reflects colour and pose.
+
+![tshirts](images/search_tshirts.png)
+
+The full run, with outputs, is in [`notebook.ipynb`](notebook.ipynb).
+
 ## Approach
 
 - **Model:** `timm` ResNet-50 backbone (ImageNet weights) + Dropout/Linear head. First epoch with the backbone frozen, then the whole network fine-tuned.
